@@ -26,6 +26,7 @@ public class TopicReader {
                 for (int j = 0; j < argument.twords; j++) {
                     String line = bufferedReader.readLine();
                     StringTokenizer stringTokenizer = new StringTokenizer(line);
+                    if(stringTokenizer.countTokens() != 2) continue;
                     Vocabulary v = new Vocabulary(stringTokenizer.nextToken(), Double.parseDouble(stringTokenizer.nextToken()));
                     perTopicVacabularies.add(v);
                 }
