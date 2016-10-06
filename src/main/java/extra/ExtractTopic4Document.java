@@ -15,6 +15,7 @@ public class ExtractTopic4Document {
 
         try {
             parser.parseArgument(args);
+            new ThetaReader(argument).read();
         } catch (CmdLineException e) {
             System.out.println("Command line error: " + e.getMessage());
             printMessage(parser);
