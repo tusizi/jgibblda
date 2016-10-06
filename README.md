@@ -1,13 +1,19 @@
 # jgibblda
 
-### Usage
+------
 
-Add the following params to the idea when run app.
+Open source LDA
 
+## Usage
+
+### 1.LDA
+
+> Add following args to idea run LDA
 -est -alpha 0.5 -beta 0.1 -ntopics 120 -niters 1000 -savestep 1000 -twords 20 -dfile newdocs.dat -dir /Users/codedrinker/Code/jgibblda/src/main/resources/models/casestudy-pro
 
+### 2.Extract Topics
 
-### Origin
+> Add following args to idea run ExtractTopic4Document
+-ntopics 5 -twords 18 -dtopicsFile model-final.topics -dthetaFile model-final.theta -dtwordsFile model-final.twords -dir /Users/codedrinker/Code/jgibblda/src/main/resources/models/casestudy-zh
 
-The code is from http://gibbslda.sourceforge.net/
- I just add some new features for documents analysis.
+------
