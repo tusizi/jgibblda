@@ -7,6 +7,9 @@ public class Argument {
     @Option(name = "-dir", usage = "Specify directory")
     public String dir = "";
 
+    @Option(name = "-datopicsFile", usage = "Specify output each document advance topic file")
+    public String atopicFile = "model-final.atopics";
+
     @Option(name = "-dtopicsFile", usage = "Specify output each document topic file")
     public String topicsFile = "model-final.topics";
 
@@ -21,4 +24,7 @@ public class Argument {
 
     @Option(name = "-twords", usage = "Specify the number of most likely words to be printed for each topic")
     public int twords = 100;
+
+    @Option(name = "-tawords", usage = "Specify the number of most likely advance words to be printed for each document")
+    public int atwords = 100;
 }

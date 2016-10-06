@@ -4,6 +4,7 @@ import extra.argument.Argument;
 import extra.entity.Vocabulary;
 import extra.reader.ThetaReader;
 import extra.reader.TopicReader;
+import extra.utils.ProbabilityUtil;
 import extra.writer.TopicWriter;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -22,7 +23,13 @@ public class ExtractTopic4Document {
 
         try {
             parser.parseArgument(args);
-            List<Integer> maxPositions = new ThetaReader(argument).read();
+            List<List<Double>> totalProbabilities = new ThetaReader(argument).read();
+
+            List<Integer> maxPositions = new ArrayList<Integer>();
+            for (List<Double> probabilities : totalProbabilities) {
+                maxPositions.add(ProbabilityUtil.getMaxPosition(probabilities));
+            }
+
             List<List<Vocabulary>> topics = new TopicReader(argument).read();
 
             List<List<Vocabulary>> articleTopics = new ArrayList<List<Vocabulary>>();

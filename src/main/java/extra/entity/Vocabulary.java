@@ -7,6 +7,14 @@ public class Vocabulary {
     private String word;
     private Double percent;
 
+    public String getWord() {
+        return word;
+    }
+
+    public Double getPercent() {
+        return percent;
+    }
+
     public Vocabulary(String word, Double percent) {
         this.word = word;
         this.percent = percent;

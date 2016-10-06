@@ -4,7 +4,6 @@ import extra.argument.Argument;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -15,7 +14,7 @@ public class ThetaReader {
         this.argument = argument;
     }
 
-    public List<Integer> read() {
+    public List<List<Double>> read() {
         try {
             List<List<Double>> totalProbabilities = new ArrayList<List<Double>>();
             String thetaFile = argument.dir + File.separator + argument.thetaFile;
@@ -29,28 +28,15 @@ public class ThetaReader {
                 }
                 totalProbabilities.add(perProbabilities);
             }
-            List<Integer> maxPositions = new ArrayList<Integer>();
-            for (List<Double> probabilities : totalProbabilities) {
-                maxPositions.add(getMaxPosition(probabilities));
-            }
 
-            return maxPositions;
+            return totalProbabilities;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new ArrayList<Integer>();
+        return new ArrayList<List<Double>>();
     }
 
-    public int getMaxPosition(List<Double> probabilities) {
-        List list = new ArrayList(probabilities.size());
-        list.addAll(probabilities);
-
-        Collections.sort(list);
-        Collections.reverse(list);
-
-        return probabilities.indexOf(list.get(0));
-    }
 }
