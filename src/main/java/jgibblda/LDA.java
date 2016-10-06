@@ -28,6 +28,7 @@
 
 package jgibblda;
 
+import argument.LDACmdOption;
 import org.kohsuke.args4j.*;
 
 public class LDA {

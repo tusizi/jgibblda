@@ -28,8 +28,9 @@
 
 package jgibblda;
 
+import argument.LDACmdOption;
+
 import java.io.File;
-import java.util.Vector;
 
 public class Estimator {
 	

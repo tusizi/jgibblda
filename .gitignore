@@ -1,3 +1,5 @@
 .idea/
 target/
 jgibblda.iml
+models
+.DS_Store

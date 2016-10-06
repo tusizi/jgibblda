@@ -28,12 +28,7 @@
 
 package jgibblda;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-import java.util.Vector;
+import argument.LDACmdOption;
 
 public class Inferencer {	
 	// Train model

@@ -27,6 +27,8 @@
  */
 package jgibblda;
 
+import argument.LDACmdOption;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -38,7 +40,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -436,7 +437,7 @@ public class Model {
 	/**
 	 * initialize the model
 	 */
-	protected boolean init(LDACmdOption option){		
+	protected boolean init(LDACmdOption option){
 		if (option == null)
 			return false;
 		
