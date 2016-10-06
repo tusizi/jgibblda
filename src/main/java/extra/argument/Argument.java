@@ -15,7 +15,7 @@ public class Argument {
     public String twordsFile = "model-final.twords";
 
     @Option(name = "-ntopics", usage = "Specify the number of topics")
-    public int K = 100;
+    public int ntopics = 100;
 
     @Option(name = "-twords", usage = "Specify the number of most likely words to be printed for each topic")
     public int twords = 100;

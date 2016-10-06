@@ -1,10 +1,10 @@
 package extra.reader;
 
 import extra.argument.Argument;
+import extra.entity.Vocabulary;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -15,42 +15,29 @@ public class TopicReader {
         this.argument = argument;
     }
 
-    public List<Integer> read() {
+    public List<List<Vocabulary>> read() {
         try {
-            List<List<Double>> totalProbabilities = new ArrayList<List<Double>>();
-            String thetaFile = argument.dir + File.separator + argument.thetaFile;
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(thetaFile));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                StringTokenizer stringTokenizer = new StringTokenizer(line);
-                List<Double> perProbabilities = new ArrayList<Double>();
-                while (stringTokenizer.hasMoreElements()) {
-                    perProbabilities.add(Double.parseDouble(stringTokenizer.nextToken()));
+            List<List<Vocabulary>> totalVocabularies = new ArrayList<List<Vocabulary>>();
+            String twordsFile = argument.dir + File.separator + argument.twordsFile;
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(twordsFile));
+            for (int i = 0; i < argument.ntopics; i++) {
+                bufferedReader.readLine();
+                List<Vocabulary> perTopicVacabularies = new ArrayList<Vocabulary>();
+                for (int j = 0; j < argument.twords; j++) {
+                    String line = bufferedReader.readLine();
+                    StringTokenizer stringTokenizer = new StringTokenizer(line);
+                    Vocabulary v = new Vocabulary(stringTokenizer.nextToken(), Double.parseDouble(stringTokenizer.nextToken()));
+                    perTopicVacabularies.add(v);
                 }
-                totalProbabilities.add(perProbabilities);
+                totalVocabularies.add(perTopicVacabularies);
             }
-            List<Integer> maxPositions = new ArrayList<Integer>();
-            for (List<Double> probabilities : totalProbabilities) {
-                maxPositions.add(getMaxPosition(probabilities));
-            }
-
-            return maxPositions;
+            return totalVocabularies;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new ArrayList<Integer>();
-    }
-
-    public int getMaxPosition(List<Double> probabilities) {
-        List list = new ArrayList(probabilities.size());
-        list.addAll(probabilities);
-
-        Collections.sort(list);
-        Collections.reverse(list);
-
-        return probabilities.indexOf(list.get(0));
+        return new ArrayList<List<Vocabulary>>();
     }
 }
