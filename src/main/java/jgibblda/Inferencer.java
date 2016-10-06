@@ -28,9 +28,7 @@
 
 package jgibblda;
 
-import argument.LDACmdOption;
-
-public class Inferencer {	
+public class Inferencer {
 	// Train model
 	public Model trnModel;
 	public Dictionary globalDict;

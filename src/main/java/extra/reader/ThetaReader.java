@@ -1,6 +1,6 @@
-package extra;
+package extra.reader;
 
-import argument.Argument;
+import extra.argument.Argument;
 
 import java.io.*;
 import java.util.ArrayList;

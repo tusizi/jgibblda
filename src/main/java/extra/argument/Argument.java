@@ -1,4 +1,4 @@
-package argument;
+package extra.argument;
 
 import org.kohsuke.args4j.Option;
 

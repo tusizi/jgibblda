@@ -1,8 +1,11 @@
 package extra;
 
-import argument.Argument;
+import extra.argument.Argument;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
+import extra.reader.ThetaReader;
+
+import java.util.List;
 
 public class ExtractTopic4Document {
     public static void main(String[] args) {
@@ -15,7 +18,7 @@ public class ExtractTopic4Document {
 
         try {
             parser.parseArgument(args);
-            new ThetaReader(argument).read();
+            List<Integer> maxPositions = new ThetaReader(argument).read();
         } catch (CmdLineException e) {
             System.out.println("Command line error: " + e.getMessage());
             printMessage(parser);

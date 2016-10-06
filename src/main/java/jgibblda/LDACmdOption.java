@@ -1,4 +1,4 @@
-package argument;
+package jgibblda;
 
 import org.kohsuke.args4j.*;
 
