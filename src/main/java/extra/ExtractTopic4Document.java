@@ -2,11 +2,13 @@ package extra;
 
 import extra.argument.Argument;
 import extra.entity.Vocabulary;
+import extra.reader.ThetaReader;
 import extra.reader.TopicReader;
+import extra.writer.TopicWriter;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
-import extra.reader.ThetaReader;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExtractTopic4Document {
@@ -22,6 +24,15 @@ public class ExtractTopic4Document {
             parser.parseArgument(args);
             List<Integer> maxPositions = new ThetaReader(argument).read();
             List<List<Vocabulary>> topics = new TopicReader(argument).read();
+
+            List<List<Vocabulary>> articleTopics = new ArrayList<List<Vocabulary>>();
+
+            for (Integer position : maxPositions) {
+                articleTopics.add(topics.get(position));
+            }
+
+            new TopicWriter(argument).write(articleTopics);
+
         } catch (CmdLineException e) {
             System.out.println("Command line error: " + e.getMessage());
             printMessage(parser);

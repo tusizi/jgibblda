@@ -7,9 +7,11 @@ public class Argument {
     @Option(name = "-dir", usage = "Specify directory")
     public String dir = "";
 
+    @Option(name = "-dtopicsFile", usage = "Specify output each document topic file")
+    public String topicsFile = "model-final.topics";
+
     @Option(name = "-dthetaFile", usage = "Specify theta file")
     public String thetaFile = "model-final.theta";
-
 
     @Option(name = "-dtwordsFile", usage = "Specify twords file")
     public String twordsFile = "model-final.twords";
