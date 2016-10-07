@@ -15,6 +15,55 @@ import java.util.List;
 import java.util.Map;
 
 public class AdvanceCombineTopics4Document {
+    /*
+        //读入theta文件
+        Input model-final.theta
+
+        //读入话题文件文件
+        Input model-final.twords
+
+         // 解析每行浮点数的权重值放到二维集合类里面
+        List<List<Double>> totalProbabilities <- extract model-final.theta
+
+        //解析每一个话题
+        List<List<Vocabulary>> articleTopics <- extract model-final.twords
+
+        //循环每一个文章的权重列表
+        for probabilities <- totalProbabilities {
+
+            //定义可以由文字做key的map
+            Map<String, Double> wordMap
+
+            //循环每一个文章里面的每一个权重值
+            for index,probability <- probabilities{
+
+                //获取当前文章权重值对应的topic
+                relatedTopic <- articleTopics[i]
+
+                //循环topic每一个话题,并与当前的文章对应topic权重值相乘再相加
+                for word,percent <- relatedTopic {
+                    //如果wordMap里面有就加和
+                    if wordMap has key word
+                       wordMap[word] <- wordMap[word] + probability * percent
+                    //如果没有就放进去
+                    else
+                       wordMap[word] <-   probability * percent
+                }
+            }
+
+            //按照wordMap的value大到小排序,并输出
+            Output sorted word map
+        }
+
+        //话题里面每一个词的内容和权重的类
+        class Vocabulary {
+            具体的词汇名字
+            name
+
+            当前词在topic中的权重值
+            percent
+        }
+     */
     public static void main(String[] args) {
         Argument argument = new Argument();
         CmdLineParser parser = new CmdLineParser(argument);
